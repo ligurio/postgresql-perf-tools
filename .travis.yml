@@ -9,19 +9,11 @@ env:
    - PGVERSION=9.5
    - PGVERSION=9.6
 
-python:
-   - "2.7"
-   - "3.3"
-   - "3.4"
-   - "3.5"
-   - "pypy"
-   - "pypy3"
-
 before_script:
-   - pip install six psycopg2 pg8000 flake8
+   - pip install psycopg2
 
 script:
-   - flake8 --ignore=W191,F401,E501,F403 .
+   - python ./pg-info.py
 
 notifications:
   email:
