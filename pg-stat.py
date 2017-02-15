@@ -141,7 +141,7 @@ class DbStatCounter:
 		self.val_initial = 0
 		self.val = 0
 		self.rate = 0
-		self.time = None
+		self.time = 0
 
 	def update(self):
 		prev_val = float(self.val)
@@ -269,7 +269,7 @@ class pgsIoReadWa(DbStatCounter):
 	metric = "wait%"
 	help = "percent of time spent on IO read's wait [100 * pg_stat_database.blk_read_time / wall_time] (>= 9.2)"
 	def update_action(self):
-		td = time.time() - self.time
+		dt = time.time() - self.time
 		wa = self.store.store['blk_read_time']
 		self.val = 100 * wa / dt if dt else 0
 
@@ -278,7 +278,7 @@ class pgsIoWriteWa(DbStatCounter):
 	metric = "wait%"
 	help = "percent of time spent on IO write's wait [100 * pg_stat_database.blk_write_time / wall_time] (>= 9.2)"
 	def update_action(self):
-		td = time.time() - self.time
+		dt = time.time() - self.time
 		wa = self.store.store['blk_write_time']
 		self.val = 100 * wa / dt if dt else 0
 
