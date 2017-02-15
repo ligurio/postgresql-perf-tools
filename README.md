@@ -1,4 +1,5 @@
 ## PostgreSQL Performance Monitoring Tools
+
 This package includes three useful scripts aimed to help to pinpoint
 performance  issues on systems with PostgreSQL as database backend.
 
@@ -13,11 +14,12 @@ database user and password.
 
 Note: you may need to modify pg_hba.conf file to allow the scripts to
 connect to the server. Please refer to official documentaion:
-http://www.postgresql.org/docs/9.3/static/auth-pg-hba-conf.html
+http://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html
 
 For detailed list of command line options use --help / -h option.
 
 ### pg-top
+
 *pg-top.py* uses pg_stat_user_tables system table to get current statistics
 of server activity. The information is represented in 'top'-like screen,
 per table and total for the server, and updated dynamically.
@@ -35,6 +37,7 @@ The following data is reported:
 * approximate number of rows in table
 
 ### pg-stat
+
 *pg-stat.py* is a command-line tool to get advanced server statistics in
 real-time. The information is represented in tabular form, similar to
 'vmstat' output. By default, new data row is printed each 2 seconds.
@@ -55,6 +58,7 @@ The following data is reported:
 * total number of live processes
 
 ### pg-info
+
 *pg-info.py* script gathers static performance-related information
 from the pg_stat_xxx tables and tries to identify potential problem sources.
 
@@ -67,12 +71,12 @@ In particular, the following data is reported:
 
 
 ## Authors And Contributors
+
 These scripts were created as inhouse tools at Parallels (www.parallels.com),
-by Alexander Andreev (aandreev@parallels.com).
+by Alexander Andreev (aandreev@odin.com).
 
 Do not hesitate to send your patches, issues and proposals!
 
 ## License
-Released under [GPLv2 License](https://github.com/CloudServer/postgresql-perf-tools/blob/master/LICENSE)
 
-
+Released under [GPLv2 License](LICENSE)
