@@ -118,8 +118,8 @@ class PgStatStoreBigUserTables(PgStatStore):
 class PgStatStoreProc(PgStatStore):
 	def update(self):
 		ret = DB.execute_fetchall(con,
-			"SELECT current_query, COUNT(*) FROM pg_stat_activity " + \
-			"WHERE datname = '%s' GROUP BY current_query" % opts.db_name)
+			"SELECT query, COUNT(*) FROM pg_stat_activity " + \
+			"WHERE datname = '%s' GROUP BY query" % opts.db_name)
 
 		self.store = {}
 		for row in ret:
