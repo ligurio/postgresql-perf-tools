@@ -95,6 +95,9 @@ class PgStatStore:
 			self.store[c] = ret[n]
 			n += 1
 
+	def append(self, column):
+		self.cols.append(column)
+
 class PgStatStoreBigUserTables(PgStatStore):
 	def __init__(self, cols):
 		self.cols = cols
